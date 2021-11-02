@@ -1,0 +1,232 @@
+#main .content {
+  border-top: 0 none;
+}
+
+.headline_inner {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+}
+.headline_inner .image {
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+}
+.headline_inner .image img {
+  object-fit: cover;
+  object-position: center;
+}
+.headline_inner .title {
+  margin-left: 18px;
+  flex-grow: 1;
+  align-self: center;
+}
+.headline_inner .title > div {
+  color: #858585;
+  font-size: 16px;
+  margin-top: 8px;
+}
+.headline_inner .actions a {
+  color: #767676;
+  font-size: 13px;
+  font-weight: 400;
+}
+.headline_inner .actions a:hover {
+  color: #111;
+}
+
+.re_backend_manager {
+  position: relative;
+}
+.re_backend_manager * {
+  box-sizing: border-box;
+}
+.re_backend_manager .tl_formbody_edit {
+  background-color: #fbfbfb;
+  border-top: 0 none;
+}
+.re_backend_manager .tab_input,
+.re_backend_manager .tab_cont {
+  display: none;
+}
+.re_backend_manager .loader {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.5);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 34px, rgba(255, 255, 255, 0.5) 34px, rgba(255, 255, 255, 0.5) 100%);
+}
+.re_backend_manager .loader.load {
+  display: flex;
+}
+.re_backend_manager .loader:after {
+  display: block;
+  content: "";
+  position: relative;
+  z-index: 25;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transform-origin: center center;
+  transform: translateX(-50%) translateY(-50%);
+  box-shadow: inset 2px 0 0 0 #F47C00;
+  animation: spin 0.5s infinite linear;
+}
+.re_backend_manager nav {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  position: relative;
+  left: -1px;
+  background: #eaeaec;
+  width: calc(100% + 2px);
+  white-space: nowrap;
+}
+.re_backend_manager nav label {
+  position: relative;
+  margin: 0 2px;
+  padding: 9px 11px;
+  min-width: 66px;
+  text-align: center;
+  background-color: #F3F3F5;
+  border-radius: 4px 4px 0 0;
+  border: 1px solid #ccc;
+  border-bottom: 0 none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.re_backend_manager nav label:first-child {
+  margin-left: 0;
+}
+.re_backend_manager nav label.error:before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  z-index: 5;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9a1f1f;
+  box-shadow: 0 0 5px 0 #cc3939;
+}
+.re_backend_manager nav label:hover {
+  background-color: #FBFBFB;
+}
+.re_backend_manager #tab_0:checked ~ .tab_content #cont_0,
+.re_backend_manager #tab_1:checked ~ .tab_content #cont_1,
+.re_backend_manager #tab_2:checked ~ .tab_content #cont_2,
+.re_backend_manager #tab_3:checked ~ .tab_content #cont_3,
+.re_backend_manager #tab_4:checked ~ .tab_content #cont_4,
+.re_backend_manager #tab_5:checked ~ .tab_content #cont_5,
+.re_backend_manager #tab_6:checked ~ .tab_content #cont_6,
+.re_backend_manager #tab_7:checked ~ .tab_content #cont_7,
+.re_backend_manager #tab_8:checked ~ .tab_content #cont_8,
+.re_backend_manager #tab_9:checked ~ .tab_content #cont_9,
+.re_backend_manager #tab_10:checked ~ .tab_content #cont_10,
+.re_backend_manager #tab_11:checked ~ .tab_content #cont_11,
+.re_backend_manager #tab_12:checked ~ .tab_content #cont_12 {
+  display: flex;
+}
+.re_backend_manager #tab_0:checked ~ nav #label_0,
+.re_backend_manager #tab_1:checked ~ nav #label_1,
+.re_backend_manager #tab_2:checked ~ nav #label_2,
+.re_backend_manager #tab_3:checked ~ nav #label_3,
+.re_backend_manager #tab_4:checked ~ nav #label_4,
+.re_backend_manager #tab_5:checked ~ nav #label_5,
+.re_backend_manager #tab_6:checked ~ nav #label_6,
+.re_backend_manager #tab_7:checked ~ nav #label_7,
+.re_backend_manager #tab_8:checked ~ nav #label_8,
+.re_backend_manager #tab_9:checked ~ nav #label_9,
+.re_backend_manager #tab_10:checked ~ nav #label_10,
+.re_backend_manager #tab_11:checked ~ nav #label_11,
+.re_backend_manager #tab_12:checked ~ nav #label_12 {
+  background-color: #FBFBFB;
+}
+.re_backend_manager #tab_0:checked ~ nav #label_0:after,
+.re_backend_manager #tab_1:checked ~ nav #label_1:after,
+.re_backend_manager #tab_2:checked ~ nav #label_2:after,
+.re_backend_manager #tab_3:checked ~ nav #label_3:after,
+.re_backend_manager #tab_4:checked ~ nav #label_4:after,
+.re_backend_manager #tab_5:checked ~ nav #label_5:after,
+.re_backend_manager #tab_6:checked ~ nav #label_6:after,
+.re_backend_manager #tab_7:checked ~ nav #label_7:after,
+.re_backend_manager #tab_8:checked ~ nav #label_8:after,
+.re_backend_manager #tab_9:checked ~ nav #label_9:after,
+.re_backend_manager #tab_10:checked ~ nav #label_10:after,
+.re_backend_manager #tab_11:checked ~ nav #label_11:after,
+.re_backend_manager #tab_12:checked ~ nav #label_12:after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: #FBFBFB;
+}
+.re_backend_manager .tab_content {
+  padding: 17px 12px 12px;
+  border-top: 1px solid #d0d0d2;
+}
+.re_backend_manager .tab_cont {
+  align-items: flex-start;
+  flex-direction: column;
+}
+.re_backend_manager .tab_cont > div {
+  width: 100%;
+}
+.re_backend_manager fieldset {
+  padding: 5px 0 17px;
+  margin: 10px 10px 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: 0 3px 5px -2px rgba(0, 0, 0, 0.1);
+}
+.re_backend_manager fieldset legend {
+  padding: 0 5px;
+  margin-left: 12px;
+  font-weight: 600;
+}
+.re_backend_manager fieldset .tl_error {
+  background: 0 0;
+  padding: 0;
+  margin-bottom: 0;
+  font-size: 0.75rem;
+}
+.re_backend_manager fieldset .widget h3 {
+  margin: 0;
+  padding-top: 13px;
+  font-size: 0.875rem;
+}
+.re_backend_manager fieldset .widget textarea {
+  resize: vertical;
+}
+
+@media (min-width: 1400px) {
+  .re_backend_manager .tab_cont {
+    flex-direction: row;
+  }
+  .re_backend_manager .tab_cont > div {
+    width: 50%;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=backend.css.map */

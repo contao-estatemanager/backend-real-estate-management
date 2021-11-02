@@ -1,0 +1,42 @@
+{% extends "@ContaoCore/Backend/be_page.html.twig" %}
+
+{% block headline %}
+    <div class="headline_inner">
+        <div class="image">
+            {{ head.image|raw }}
+        </div>
+        <div class="title">
+            {{ head.title }}
+            <div>{{ head.subtitle }}</div>
+        </div>
+        <div class="actions">
+            <a href="{{ head.classicLink }}">{{ head.classicLabel }}</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block error %}{% endblock %}
+
+{% block main %}
+    {% if head.message %}
+        {{ head.message|raw }}
+    {% endif %}
+    {% if valid %}
+        <form id="tl_real_estate" class="re_backend_manager tl_form tl_edit_form" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" name="id" value="{{ form.id }}">
+            <input type="hidden" name="act" value="edit">
+            <input type="hidden" name="FORM_SUBMIT" value="tl_real_estate">
+            <input type="hidden" name="REQUEST_TOKEN" value="{{ form.rt }}">
+            <input type="hidden" name="FORM_FIELDS[]" value="{{ form.palette }}">
+            <div class="tl_formbody_edit">
+                {{ form.content|raw }}
+            </div>
+            <div class="tl_formbody_submit">
+                <div class="tl_submit_container">
+                    <button type="submit" name="save" id="save" class="tl_submit" accesskey="s">{{ form.label }}</button>
+                </div>
+            </div>
+            <div class="loader"></div>
+        </form>
+    {% endif %}
+{% endblock %}

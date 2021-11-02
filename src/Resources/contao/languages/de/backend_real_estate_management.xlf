@@ -1,0 +1,262 @@
+<?xml version="1.0" ?><xliff version="1.1">
+  <file datatype="php" original="src/Resources/contao/languages/en/backend_real_estate_management.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="backend_real_estate_management.legend_provider">
+        <source>Provider</source>
+        <target>Anbieter</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_object">
+        <source>Base information</source>
+        <target>Basisinformationen</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_identification">
+        <source>Identification</source>
+        <target>Identifikation</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_marketing">
+        <source>Marketing</source>
+        <target>Vermarktung</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_web">
+        <source>Website</source>
+        <target>Website</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_seo">
+        <source>SEO</source>
+        <target>SEO</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_export">
+        <source>Export / Portals</source>
+        <target>Export / Portale</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_images">
+        <source>Images</source>
+        <target>Bilder</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_documents">
+        <source>Documents</source>
+        <target>Dokumente</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_links">
+        <source>Links</source>
+        <target>Links</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_prices">
+        <source>Prices</source>
+        <target>Preise</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_further">
+        <source>Other price properties</source>
+        <target>Weitere Preiseigenschaften</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_courtage">
+        <source>Courtage</source>
+        <target>Courtage</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_investment">
+        <source>Return on investment</source>
+        <target>Rendite</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_provision">
+        <source>Provision</source>
+        <target>Provision</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_time">
+        <source>Zeiteinheiten</source>
+        <target>Zeiteinheiten</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_additional">
+        <source>Further price properties</source>
+        <target>Weitere Preiseigenschaften</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_deposit">
+        <source>Deposit</source>
+        <target>Kaution</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_charges">
+        <source>Service charges</source>
+        <target>Nebenkosten</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_currency">
+        <source>Currency</source>
+        <target>Währung</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_texts">
+        <source>Texts</source>
+        <target>Texte</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_parking">
+        <source>General</source>
+        <target>Allgemein</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_carport">
+        <source>Carport</source>
+        <target>Carport</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_duplex">
+        <source>Duplex</source>
+        <target>Duplex</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_freiplatz">
+        <source>Free space</source>
+        <target>Freiplatz</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_garage">
+        <source>Garage</source>
+        <target>Garage</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_parkhaus">
+        <source>Parking garage</source>
+        <target>Parkhaus</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_tiefgarage">
+        <source>Underground parking</source>
+        <target>Tiefgarage</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_sonstige">
+        <source>Miscellaneous</source>
+        <target>Sonstige</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_address">
+        <source>Address</source>
+        <target>Adresse</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_geo">
+        <source>Geo</source>
+        <target>Geo</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_energiepass">
+        <source>Energy pass</source>
+        <target>Energieausweis</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_condition">
+        <source>Condition of the property</source>
+        <target>Zustand</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_energiepassCountry">
+        <source>Country-specific (Energy pass)</source>
+        <target>Länderspezifisch (Energieausweis)</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_areas">
+        <source>Areas</source>
+        <target>Flächen</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_quantity">
+        <source>Quantity</source>
+        <target>Anzahlen</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_area_commerce">
+        <source>Commerce</source>
+        <target>Gewerbe</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_area_plot">
+        <source>Extended plot details</source>
+        <target>Erweiterte Grundstücksangaben</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_area_investment">
+        <source>Investment</source>
+        <target>Rendite</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_area_other">
+        <source>Further properties</source>
+        <target>Weitere Flächenangaben</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_area_props">
+        <source>Properties</source>
+        <target>Eigenschaften</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_distances">
+        <source>Distances</source>
+        <target>Distanzen</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_view">
+        <source>View</source>
+        <target>Ausblick</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_status">
+        <source>Status</source>
+        <target>Status</target>
+      </trans-unit>
+
+      <trans-unit id="backend_real_estate_management.tab_basics">
+        <source>Basics</source>
+        <target>Grunddaten</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.tab_location">
+        <source>Location</source>
+        <target>Standort</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.tab_prices">
+        <source>Prices</source>
+        <target>Preise</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.tab_areas">
+        <source>Areas / Quantity</source>
+        <target>Flächen / Anzahlen</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.tab_details">
+        <source>Details</source>
+        <target>Eigenschaften</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.tab_parking">
+        <source>Parking</source>
+        <target>Stellplätze</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.tab_texts">
+        <source>Texts</source>
+        <target>Texte</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.tab_condition">
+        <source>Condition / Energy pass</source>
+        <target>Zustand / Energieausweis</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.tab_files">
+        <source>Files</source>
+        <target>Dateien</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.tab_publishing">
+        <source>Publishing</source>
+        <target>Veröffentlichung</target>
+      </trans-unit>
+
+      <trans-unit id="backend_real_estate_management.legend_objTitle">
+        <source>Title</source>
+        <target>Titel</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_objDesc">
+        <source>Description</source>
+        <target>Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_objEquip">
+        <source>Equipment</source>
+        <target>Ausstattung</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_objLocation">
+        <source>Location</source>
+        <target>Lage</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_objMisc">
+        <source>Miscellaneous</source>
+        <target>Verschiedenes</target>
+      </trans-unit>
+
+      <trans-unit id="backend_real_estate_management.label_classic_link">
+        <source>Classic view</source>
+        <target>Klassische Ansicht</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.label_submit">
+        <source>Save</source>
+        <target>Speichern</target>
+      </trans-unit>
+
+      <trans-unit id="backend_real_estate_management.title">
+        <source>Edit real estate %s</source>
+        <target>Immobilie %s bearbeiten</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.invalid">
+        <source>You have installed the extended property management but have not entered a license. Please enter the license in the license management or use the standard management.</source>
+        <target>Sie haben die erweiterte Immobilien-Verwaltung installiert jedoch keine Lizenz hinterlegt. Bitte tragen Sie die Lizenz in der Lizenzverwaltung ein oder verwenden Sie die Standard-Verwaltung.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
