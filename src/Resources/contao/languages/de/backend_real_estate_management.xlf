@@ -170,12 +170,60 @@
         <target>Distanzen</target>
       </trans-unit>
       <trans-unit id="backend_real_estate_management.legend_view">
-        <source>View</source>
-        <target>Ausblick</target>
+        <source>Position / View</source>
+        <target>Lage / Ausblick</target>
       </trans-unit>
       <trans-unit id="backend_real_estate_management.legend_status">
         <source>Status</source>
         <target>Status</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_equip">
+        <source>Equipment</source>
+        <target>Ausstattung</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_building">
+        <source>Building</source>
+        <target>Gebäude</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_internet">
+        <source>Internet / TV / Telephony</source>
+        <target>Internet / Fernsehen / Telefonie</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_details">
+        <source>Properties</source>
+        <target>Eigenschaften</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_extra">
+        <source>Extra</source>
+        <target>Extra</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_auction">
+        <source>Bidding process</source>
+        <target>Bieterverfahren</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_forcedsale">
+        <source>Forced sale</source>
+        <target>Zwangsversteigerung</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_project">
+        <source>Residential</source>
+        <target>Wohnanlagen</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_floor">
+        <source>Floor</source>
+        <target>Etagen</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_groundlease">
+        <source>Ground lease</source>
+        <target>Erbpacht</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_availability">
+        <source>Availability</source>
+        <target>Verfügbarkeit</target>
+      </trans-unit>
+      <trans-unit id="backend_real_estate_management.legend_language">
+        <source>Language</source>
+        <target>Sprache</target>
       </trans-unit>
 
       <trans-unit id="backend_real_estate_management.tab_basics">

@@ -211,6 +211,17 @@
 .re_backend_manager fieldset .widget textarea {
   resize: vertical;
 }
+.re_backend_manager fieldset .widget fieldset {
+  margin: 13px 0 0;
+  padding-left: 12px;
+  padding-bottom: 10px;
+  box-shadow: none;
+  border-color: #e3e3e3;
+}
+.re_backend_manager fieldset .widget fieldset legend {
+  margin-left: -16px;
+  padding-left: 3px;
+}
 
 @media (min-width: 1400px) {
   .re_backend_manager .tab_cont {

@@ -90,6 +90,8 @@ if (AddonManager::valid() && false !== strpos(Environment::get('requestUri'), '/
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['verkaufstatus']['dependsOn'] = ['vermarktungsartKauf' => 1];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['vermietet']['dependsOn'] = ['vermarktungsartMietePacht' => 1];
 
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['laufzeit']['dependsOn'] = ['vermarktungsartErbpacht' => 1];
+
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['kaufpreis']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['kaufpreisAufAnfrage']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['kaufpreisnetto']['dependsOn'] = [$marketingBuy];
@@ -123,11 +125,38 @@ if (AddonManager::valid() && false !== strpos(Environment::get('requestUri'), '/
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['energiepassMitwarmwasser']['dependsOn'] = ['energiepassEpart' => 'verbrauch'];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['energiepassEndenergiebedarf']['dependsOn'] = ['energiepassEpart' => 'bedarf'];
 
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['breitbandGeschw']['dependsOn'] = ['breitbandZugang' => 1];
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['breitbandArt']['dependsOn'] = ['breitbandZugang' => 1];
+
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['branchen']['dependsOn'] = ['gewerblicheNutzung' => 1];
+
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['aktenzeichen']['dependsOn'] = ['zwangsversteigerung' => 1];
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['zvtermin']['dependsOn'] = ['zwangsversteigerung' => 1];
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['zusatztermin']['dependsOn'] = ['zwangsversteigerung' => 1];
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['amtsgericht']['dependsOn'] = ['zwangsversteigerung' => 1];
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['verkehrswert']['dependsOn'] = ['zwangsversteigerung' => 1];
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['versteigerungstermin']['dependsOn'] = ['zwangsversteigerung' => 1];
+
     // Styles
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['weitergabePositiv']['eval']['tl_class'] .= ' clr';
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['objekttitel']['eval']['tl_class'] .= ' long';
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['alias']['eval']['tl_class'] .= ' long';
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['metaDescription']['eval']['tl_class'] .= ' clr';
+
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['bad']['eval']['tl_class'] = 'clr long';
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['angeschlGastronomie']['eval']['tl_class'] = 'clr long';
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['sicherheitstechnik']['eval']['tl_class'] = 'clr long';
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['ausstattKategorie']['eval']['tl_class'] = 'long';
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['unterkellert']['eval']['tl_class'] = 'long';
+
+
+    // Clear checkbox widgets
+    $arrCheckboxes = ['wbsSozialwohnung','kartenMakro','kartenMikro','luftbildern','virtuelletour','hochhaus','denkmalgeschuetzt','gewerblicheNutzung','branchen','alsFerien','kabelSatTv','dvbt','dvVerkabelung','breitbandZugang','umtsEmpfang','kabelkanaele','telefonFerienimmobilie','nichtraucher','gaestewc','haustiere','raeumeVeraenderbar','wgGeeignet','abstellraum','dachboden','gartennutzung','fahrradraum','rolladen','bibliothek','klimatisiert','seniorengerecht','rollstuhlgerecht','barrierefrei','waschTrockenraum','kamin','sauna','swimmingpool','wintergarten','rampe','hebebuehne','kran','zulieferung','gastterrasse','kantineCafeteria','teekueche','brauereibindung','sporteinrichtungen','wellnessbereich'];
+
+    foreach ($arrCheckboxes as $field)
+    {
+        $GLOBALS['TL_DCA']['tl_real_estate']['fields'][$field]['eval']['tl_class'] = 'clr';
+    }
 
     // Reset trigger (use dependsOn only)
     unset($GLOBALS['TL_DCA']['tl_real_estate']['subpalettes'], $GLOBALS['TL_DCA']['tl_real_estate']['palettes']['__selector__']);
