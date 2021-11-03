@@ -1,6 +1,5 @@
 {
   "name":"contao-estatemanager/backend-real-estate-management",
-  "type":"contao-bundle",
   "description":"Backend Real Estate Management Extension for Contao EstateManager",
   "keywords":["contao","estatemanager","backend"],
   "homepage":"https://www.contao-estatemanager.com/",
