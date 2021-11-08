@@ -20,7 +20,6 @@ use Contao\Input;
 use Contao\Message;
 use Contao\System;
 use ContaoEstateManager\BackendRealEstateManagement\Adapter\DcAdapter;
-use ContaoEstateManager\BackendRealEstateManagement\EstateManager\AddonManager;
 use ContaoEstateManager\BackendRealEstateManagement\LayoutBuilder;
 use ContaoEstateManager\RealEstate;
 use ContaoEstateManager\RealEstateModel;
@@ -82,12 +81,6 @@ class BackendModuleController extends AbstractController
         System::loadLanguageFile('backend_real_estate_management');
         System::loadLanguageFile($this->strTable);
 
-        // Check if extension is valid
-        if (!($isValid = AddonManager::valid()))
-        {
-            Message::addInfo($this->translator->trans('backend_real_estate_management.invalid', [], 'contao_default'));
-        }
-
         // Parse tabs and widgets by config
         $htmlContent = $this->parse($GLOBALS['CEM_BACKEND_FIELD_CONFIG']);
 
@@ -117,8 +110,7 @@ class BackendModuleController extends AbstractController
                     'palette' => $this->adapter->getPalette(),
                     'label' => $this->translator->trans('backend_real_estate_management.label_submit', [], 'contao_default'),
                     'content' => $htmlContent,
-                ],
-                'valid' => $isValid,
+                ]
             ]
         ));
     }

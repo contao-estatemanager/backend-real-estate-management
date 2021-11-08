@@ -15,18 +15,14 @@ use Contao\BackendUser;
 use Contao\Environment;
 use Contao\StringUtil;
 use Contao\Image;
-use ContaoEstateManager\BackendRealEstateManagement\EstateManager\AddonManager;
 
-if (AddonManager::valid())
+$GLOBALS['TL_DCA']['tl_real_estate']['list']['operations']['edit']['button_callback'] = static function(array $row, string $href, string $label, string $title, string $icon, string $attributes)
 {
-    $GLOBALS['TL_DCA']['tl_real_estate']['list']['operations']['edit']['button_callback'] = static function(array $row, string $href, string $label, string $title, string $icon, string $attributes)
-    {
-        $user = BackendUser::getInstance();
-        return $user->canEditFieldsOf('tl_real_estate') ? '<a href="/contao/realestate/edit/'.$row['id'].'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
-    };
-}
+    $user = BackendUser::getInstance();
+    return $user->canEditFieldsOf('tl_real_estate') ? '<a href="/contao/realestate/edit/'.$row['id'].'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
+};
 
-if (AddonManager::valid() && false !== strpos(Environment::get('requestUri'), '/contao/realestate/edit/'))
+if (false !== strpos(Environment::get('requestUri'), '/contao/realestate/edit/'))
 {
     // Load backend css / js
     $GLOBALS['TL_CSS'][] = 'bundles/estatemanagerbackendrealestatemanagement/css/backend.css';
