@@ -157,7 +157,7 @@ class LayoutBuilder
         ++$level;
 
         // Parse all children
-        if ($section['children'])
+        if ($section['children'] ?? null)
         {
             foreach ($section['children'] as $childrenSection)
             {
