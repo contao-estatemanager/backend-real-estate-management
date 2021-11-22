@@ -13,8 +13,8 @@
   ],
   "require":{
     "php":"^7.4 || ^8.0",
-    "contao/core-bundle":"^4.4",
-    "oveleon/contao-be-field-dependency": "^0.1",
+    "contao/core-bundle":">=4.9",
+    "oveleon/contao-be-field-dependency": ">=0.3",
     "contao-estatemanager/core": "*"
   },
   "require-dev": {
