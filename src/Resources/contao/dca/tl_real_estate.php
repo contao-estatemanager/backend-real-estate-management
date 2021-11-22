@@ -94,9 +94,8 @@ if (false !== strpos(Environment::get('requestUri'), '/contao/realestate/edit/')
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['kaufpreisbrutto']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['kaufpreisProQm']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['provisionspflichtig']['dependsOn'] = [$marketingBuy];
-
-    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['provisionTeilen']['dependsOn'] = ['provisionspflichtig' => $marketingBuy];
-    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['provisionTeilenWert']['dependsOn'] = ['provisionTeilen' => $marketingBuy];
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['provisionTeilen']['dependsOn'] = ['provisionspflichtig' => 1];
+    $GLOBALS['TL_DCA']['tl_real_estate']['fields']['provisionTeilenWert']['dependsOn'] = ['provisionTeilen' => 1];
 
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['innenCourtage']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['innenCourtageMwst']['dependsOn'] = [$marketingBuy];
