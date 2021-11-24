@@ -12,17 +12,35 @@ declare(strict_types=1);
  */
 
 use Contao\BackendUser;
+use Contao\Controller;
+use Contao\Database;
 use Contao\Environment;
-use Contao\StringUtil;
 use Contao\Image;
+use Contao\StringUtil;
 
-$GLOBALS['TL_DCA']['tl_real_estate']['list']['operations']['edit']['button_callback'] = static function(array $row, string $href, string $label, string $title, string $icon, string $attributes)
-{
-    $user = BackendUser::getInstance();
-    return $user->canEditFieldsOf('tl_real_estate') ? '<a href="/contao/realestate/edit/'.$row['id'].'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
+$strEditRoute = '/contao/realestate/edit/';
+
+$onCreateCallback = static function ($table, $intId) use ($strEditRoute): void {
+    Database::getInstance()->prepare('UPDATE tl_real_estate SET tstamp=? WHERE id=?')->execute([time(), $intId]);
+    Controller::redirect($strEditRoute.$intId);
 };
 
-if (false !== strpos(Environment::get('requestUri'), '/contao/realestate/edit/'))
+if (is_array($GLOBALS['TL_DCA']['tl_real_estate']['config']['oncreate_callback'] ?? null))
+{
+    $GLOBALS['TL_DCA']['tl_real_estate']['config']['oncreate_callback'][] = $onCreateCallback;
+}
+else
+{
+    $GLOBALS['TL_DCA']['tl_real_estate']['config']['oncreate_callback'] = [$onCreateCallback];
+}
+
+$GLOBALS['TL_DCA']['tl_real_estate']['list']['operations']['edit']['button_callback'] = static function (array $row, string $href, string $label, string $title, string $icon, string $attributes) use ($strEditRoute) {
+    $user = BackendUser::getInstance();
+
+    return $user->canEditFieldsOf('tl_real_estate') ? '<a href="'.$strEditRoute.$row['id'].'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
+};
+
+if (false !== strpos(Environment::get('requestUri'), $strEditRoute))
 {
     // Load backend css / js
     $GLOBALS['TL_CSS'][] = 'bundles/estatemanagerbackendrealestatemanagement/css/backend.css';
@@ -76,18 +94,13 @@ if (false !== strpos(Environment::get('requestUri'), '/contao/realestate/edit/')
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['zinsTyp']['dependsOn'] = ['objektart' => 'zinshaus_renditeobjekt'];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['landTyp']['dependsOn'] = ['objektart' => 'land_und_forstwirtschaft'];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['freizeitTyp']['dependsOn'] = ['objektart' => 'freizeitimmobilie_gewerblich'];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['breitbandArt']['dependsOn'] = ['breitbandZugang' => 1];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['breitbandGeschw']['dependsOn'] = ['breitbandZugang' => 1];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['weitergabePositiv']['dependsOn'] = ['weitergabeGenerell' => 1];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['weitergabeNegativ']['dependsOn'] = ['weitergabeGenerell' => 1];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['verkaufstatus']['dependsOn'] = ['vermarktungsartKauf' => 1];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['vermietet']['dependsOn'] = ['vermarktungsartMietePacht' => 1];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['laufzeit']['dependsOn'] = ['vermarktungsartErbpacht' => 1];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['kaufpreis']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['kaufpreisAufAnfrage']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['kaufpreisnetto']['dependsOn'] = [$marketingBuy];
@@ -96,13 +109,11 @@ if (false !== strpos(Environment::get('requestUri'), '/contao/realestate/edit/')
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['provisionspflichtig']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['provisionTeilen']['dependsOn'] = ['provisionspflichtig' => 1];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['provisionTeilenWert']['dependsOn'] = ['provisionTeilen' => 1];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['innenCourtage']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['innenCourtageMwst']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['aussenCourtage']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['aussenCourtageMwst']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['courtageHinweis']['dependsOn'] = [$marketingBuy];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['nettorendite']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['nettorenditeSoll']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['nettorenditeIst']['dependsOn'] = [$marketingBuy];
@@ -110,21 +121,16 @@ if (false !== strpos(Environment::get('requestUri'), '/contao/realestate/edit/')
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['mieteinnahmenIstPeriode']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['mieteinnahmenSoll']['dependsOn'] = [$marketingBuy];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['mieteinnahmenSollPeriode']['dependsOn'] = [$marketingBuy];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['warmmiete']['dependsOn'] = [$marketingRent];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['kaltmiete']['dependsOn'] = [$marketingRent];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['nettokaltmiete']['dependsOn'] = [$marketingRent];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['mietpreisProQm']['dependsOn'] = [$marketingRent];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['energiepassEnergieverbrauchkennwert']['dependsOn'] = ['energiepassEpart' => 'verbrauch'];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['energiepassMitwarmwasser']['dependsOn'] = ['energiepassEpart' => 'verbrauch'];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['energiepassEndenergiebedarf']['dependsOn'] = ['energiepassEpart' => 'bedarf'];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['breitbandGeschw']['dependsOn'] = ['breitbandZugang' => 1];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['breitbandArt']['dependsOn'] = ['breitbandZugang' => 1];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['branchen']['dependsOn'] = ['gewerblicheNutzung' => 1];
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['aktenzeichen']['dependsOn'] = ['zwangsversteigerung' => 1];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['zvtermin']['dependsOn'] = ['zwangsversteigerung' => 1];
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['zusatztermin']['dependsOn'] = ['zwangsversteigerung' => 1];
@@ -137,16 +143,14 @@ if (false !== strpos(Environment::get('requestUri'), '/contao/realestate/edit/')
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['objekttitel']['eval']['tl_class'] .= ' long';
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['alias']['eval']['tl_class'] .= ' long';
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['metaDescription']['eval']['tl_class'] .= ' clr';
-
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['bad']['eval']['tl_class'] = 'clr long';
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['angeschlGastronomie']['eval']['tl_class'] = 'clr long';
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['sicherheitstechnik']['eval']['tl_class'] = 'clr long';
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['ausstattKategorie']['eval']['tl_class'] = 'long';
     $GLOBALS['TL_DCA']['tl_real_estate']['fields']['unterkellert']['eval']['tl_class'] = 'long';
 
-
     // Clear checkbox widgets
-    $arrCheckboxes = ['wbsSozialwohnung','kartenMakro','kartenMikro','luftbildern','virtuelletour','hochhaus','denkmalgeschuetzt','gewerblicheNutzung','branchen','alsFerien','kabelSatTv','dvbt','dvVerkabelung','breitbandZugang','umtsEmpfang','kabelkanaele','telefonFerienimmobilie','nichtraucher','gaestewc','haustiere','raeumeVeraenderbar','wgGeeignet','abstellraum','dachboden','gartennutzung','fahrradraum','rolladen','bibliothek','klimatisiert','seniorengerecht','rollstuhlgerecht','barrierefrei','waschTrockenraum','kamin','sauna','swimmingpool','wintergarten','rampe','hebebuehne','kran','zulieferung','gastterrasse','kantineCafeteria','teekueche','brauereibindung','sporteinrichtungen','wellnessbereich'];
+    $arrCheckboxes = ['wbsSozialwohnung', 'kartenMakro', 'kartenMikro', 'luftbildern', 'virtuelletour', 'hochhaus', 'denkmalgeschuetzt', 'gewerblicheNutzung', 'branchen', 'alsFerien', 'kabelSatTv', 'dvbt', 'dvVerkabelung', 'breitbandZugang', 'umtsEmpfang', 'kabelkanaele', 'telefonFerienimmobilie', 'nichtraucher', 'gaestewc', 'haustiere', 'raeumeVeraenderbar', 'wgGeeignet', 'abstellraum', 'dachboden', 'gartennutzung', 'fahrradraum', 'rolladen', 'bibliothek', 'klimatisiert', 'seniorengerecht', 'rollstuhlgerecht', 'barrierefrei', 'waschTrockenraum', 'kamin', 'sauna', 'swimmingpool', 'wintergarten', 'rampe', 'hebebuehne', 'kran', 'zulieferung', 'gastterrasse', 'kantineCafeteria', 'teekueche', 'brauereibindung', 'sporteinrichtungen', 'wellnessbereich'];
 
     foreach ($arrCheckboxes as $field)
     {

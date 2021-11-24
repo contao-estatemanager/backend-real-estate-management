@@ -11,6 +11,9 @@
     border-radius: 2px;
     box-shadow: 0 0 0 2px rgba(255,255,255,.55);
     overflow: hidden;
+    min-width: 50px;
+    min-height: 50px;
+    background: #f1f1f1;
 
     img{
       object-fit: cover;
@@ -31,6 +34,7 @@
   }
 
   .actions{
+    text-align: right;
 
     a{
       color: #767676;

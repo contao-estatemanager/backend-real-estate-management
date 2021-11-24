@@ -16,6 +16,7 @@ namespace ContaoEstateManager\BackendRealEstateManagement\Controller\BackendModu
 use Contao\Ajax;
 use Contao\Controller;
 use Contao\Environment;
+use Contao\FilesModel;
 use Contao\Input;
 use Contao\Message;
 use Contao\System;
@@ -89,8 +90,7 @@ class BackendModuleController extends AbstractController
             Controller::reload();
         }
 
-        // Get real estate object
-        $realEstate = new RealEstate($this->objRealEstate);
+        $objFile = FilesModel::findByUuid($this->objRealEstate->titleImageSRC);
 
         // Render template
         return new Response($this->twig->render(
@@ -98,11 +98,13 @@ class BackendModuleController extends AbstractController
             [
                 'head' => [
                     'title' => $this->translator->trans('backend_real_estate_management.title', [$id], 'contao_default'),
-                    'subtitle' => $realEstate->title,
-                    'image' => $realEstate->generateMainImage([50, 50]),
+                    'subtitle' => $this->objRealEstate->title,
+                    'image' => RealEstate::parseImageTemplate($objFile, [50, 50]),
                     'message' => Message::generate(),
-                    'classicLink' => '/contao?do=real_estate&act=edit&id='.$id.'&rt='.REQUEST_TOKEN,
                     'classicLabel' => $this->translator->trans('backend_real_estate_management.label_classic_link', [], 'contao_default'),
+                    'classicLink' => '/contao?do=real_estate&act=edit&id='.$id.'&rt='.REQUEST_TOKEN,
+                    'overviewLabel' => $this->translator->trans('backend_real_estate_management.label_overview_link', [], 'contao_default'),
+                    'overviewLink' => '/contao?do=real_estate&rt='.REQUEST_TOKEN,
                 ],
                 'form' => [
                     'id' => $id,
@@ -110,7 +112,7 @@ class BackendModuleController extends AbstractController
                     'palette' => $this->adapter->getPalette(),
                     'label' => $this->translator->trans('backend_real_estate_management.label_submit', [], 'contao_default'),
                     'content' => $htmlContent,
-                ]
+                ],
             ]
         ));
     }

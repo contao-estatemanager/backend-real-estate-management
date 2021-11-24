@@ -11,6 +11,9 @@
   border-radius: 2px;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.55);
   overflow: hidden;
+  min-width: 50px;
+  min-height: 50px;
+  background: #f1f1f1;
 }
 .headline_inner .image img {
   object-fit: cover;
@@ -25,6 +28,9 @@
   color: #858585;
   font-size: 16px;
   margin-top: 8px;
+}
+.headline_inner .actions {
+  text-align: right;
 }
 .headline_inner .actions a {
   color: #767676;

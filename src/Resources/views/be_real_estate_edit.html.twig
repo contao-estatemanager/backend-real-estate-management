@@ -10,7 +10,8 @@
             <div>{{ head.subtitle }}</div>
         </div>
         <div class="actions">
-            <a href="{{ head.classicLink }}">{{ head.classicLabel }}</a>
+            <div><a href="{{ head.overviewLink }}">{{ head.overviewLabel }}</a></div>
+            <div><a href="{{ head.classicLink }}">{{ head.classicLabel }}</a></div>
         </div>
     </div>
 {% endblock %}
@@ -21,7 +22,7 @@
     {% if head.message %}
         {{ head.message|raw }}
     {% endif %}
-    <form id="tl_real_estate" class="re_backend_manager tl_form tl_edit_form" method="post" enctype="application/x-www-form-urlencoded">
+    <form id="tl_real_estate" class="re_backend_manager tl_form tl_edit_form" method="post" enctype="application/x-www-form-urlencoded" novalidate>
         <input type="hidden" name="id" value="{{ form.id }}">
         <input type="hidden" name="act" value="edit">
         <input type="hidden" name="FORM_SUBMIT" value="tl_real_estate">

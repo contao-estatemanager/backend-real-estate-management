@@ -87,7 +87,7 @@ $GLOBALS['CEM_BACKEND_FIELD_CONFIG'] = [
         ],
         'geo' => [
             'breitengrad',
-            'laengengrad'
+            'laengengrad',
         ],
     ],
     'prices' => [
@@ -234,7 +234,7 @@ $GLOBALS['CEM_BACKEND_FIELD_CONFIG'] = [
             'gastroflaeche',
             'gartenflaeche',
             'kellerflaeche',
-            'teilbarAb'
+            'teilbarAb',
         ],
         'quantity' => [
             ['column' => 'right'],
@@ -271,7 +271,7 @@ $GLOBALS['CEM_BACKEND_FIELD_CONFIG'] = [
         ],
         'area_commerce' => [
             'flaechevon',
-            'flaechebis'
+            'flaechebis',
         ],
         'area_investment' => [
             ['column' => 'right'],
@@ -283,8 +283,8 @@ $GLOBALS['CEM_BACKEND_FIELD_CONFIG'] = [
         'area_props' => [
             ['column' => 'right'],
             'kubatur',
-            'ausnuetzungsziffer'
-        ]
+            'ausnuetzungsziffer',
+        ],
     ],
     'texts' => [
         'objTitle' => [
@@ -400,7 +400,7 @@ $GLOBALS['CEM_BACKEND_FIELD_CONFIG'] = [
         'extra' => [
             'geschlecht',
             'stromanschlusswert',
-        ]
+        ],
     ],
     'parking' => [
         'parking' => [
@@ -483,7 +483,7 @@ $GLOBALS['CEM_BACKEND_FIELD_CONFIG'] = [
             'energiepassHwbklasse',
             'energiepassFgeewert',
             'energiepassFgeeklasse',
-        ]
+        ],
     ],
     'files' => [
         'images' => [

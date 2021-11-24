@@ -24,16 +24,16 @@ use ContaoEstateManager\BackendRealEstateManagement\Exception\LayoutException;
  *
  *  $layout->addSection('sectionAlias');
  *  $layout->addHtml('<label>Hello World</label>');
- *  $layout->parse('sectionAlias');                                     // Returns => <label>Hello World</label>
+ *  $layout->parse('sectionAlias'); // Returns => <label>Hello World</label>
  *
  *  ---
  *
  *  $layout->addSection('sectionAlias', 'div', ['class' => 'myClass']); // <- Set pointer to sectionAlias
- *  $layout->addSection('inputBag', 'nav');                             // <- Set pointer to inputBag
+ *  $layout->addSection('inputBag', 'nav'); // <- Set pointer to inputBag
  *
  *  $layout->addHtml('<input type="text" value="Hello World">');
  *  $layout->append('sectionAlias')
- *  $layout->parse('sectionAlias');                                     // Returns: <div class="myClass"><nav><input type="text" value="Hello World"></nav></label>
+ *  $layout->parse('sectionAlias'); // Returns: <div class="myClass"><nav><input type="text" value="Hello World"></nav></label>
  *
  * @author Daniele Sciannimanica <https://github.com/doishub>
  */
