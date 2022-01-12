@@ -11,12 +11,9 @@ declare(strict_types=1);
  * @license    https://www.contao-estatemanager.com/lizenzbedingungen.html
  */
 
-use Contao\BackendUser;
 use Contao\Controller;
 use Contao\Database;
 use Contao\Environment;
-use Contao\Image;
-use Contao\StringUtil;
 
 $strEditRoute = '/contao/realestate/edit/';
 
@@ -33,12 +30,6 @@ else
 {
     $GLOBALS['TL_DCA']['tl_real_estate']['config']['oncreate_callback'] = [$onCreateCallback];
 }
-
-$GLOBALS['TL_DCA']['tl_real_estate']['list']['operations']['edit']['button_callback'] = static function (array $row, string $href, string $label, string $title, string $icon, string $attributes) use ($strEditRoute) {
-    $user = BackendUser::getInstance();
-
-    return $user->canEditFieldsOf('tl_real_estate') ? '<a href="'.$strEditRoute.$row['id'].'" title="'.StringUtil::specialchars($title).'"'.$attributes.'>'.Image::getHtml($icon, $label).'</a> ' : Image::getHtml(preg_replace('/\.svg$/i', '_.svg', $icon)).' ';
-};
 
 if (false !== strpos(Environment::get('requestUri'), $strEditRoute))
 {
