@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace ContaoEstateManager\BackendRealEstateManagement\Adapter;
 
+use Contao\Controller;
 use Contao\DC_Table;
 use Contao\Model;
 
@@ -25,6 +26,8 @@ class DcAdapter extends DC_Table
 {
     public function __construct()
     {
+        Controller::loadDataContainer('tl_real_estate');
+
         parent::__construct('tl_real_estate');
 
         // Define values for parents save method
