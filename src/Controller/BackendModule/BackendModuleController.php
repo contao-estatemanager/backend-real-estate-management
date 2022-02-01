@@ -15,6 +15,7 @@ namespace ContaoEstateManager\BackendRealEstateManagement\Controller\BackendModu
 
 use Contao\Ajax;
 use Contao\Controller;
+use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\Environment;
 use Contao\FilesModel;
 use Contao\Input;
@@ -45,17 +46,21 @@ class BackendModuleController extends AbstractController
     private DcAdapter $adapter;
     private RealEstateModel $objRealEstate;
 
+    private ContaoFramework $framework;
     private TwigEnvironment $twig;
     private TranslatorInterface $translator;
 
-    public function __construct(TwigEnvironment $twig, TranslatorInterface $translator)
+    public function __construct(ContaoFramework $framework, TwigEnvironment $twig, TranslatorInterface $translator)
     {
+        $this->framework = $framework;
         $this->twig = $twig;
         $this->translator = $translator;
     }
 
     public function __invoke($id): Response
     {
+        $this->framework->initialize();
+
         Input::setGet('id', $id);
 
         $this->intId = (int) $id;
