@@ -15,7 +15,6 @@ $GLOBALS['CEM_BACKEND_FIELD_CONFIG'] = [
     'basics' => [
         'provider' => [
             'provider',
-            'anbieternr',
             'contactPerson',
         ],
         'identification' => [
