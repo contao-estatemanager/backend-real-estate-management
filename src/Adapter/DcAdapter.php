@@ -50,7 +50,7 @@ class DcAdapter extends DC_Table
         $this->activeRecord = $objModel;
     }
 
-    public function setWidget(string $name, ?string $value): void
+    public function setWidget(string $name, $value): void
     {
         $this->strField = $name;
         $this->strInputName = $name;
